@@ -6,11 +6,11 @@ function obtenerNombre() {
 }
 
 //edad
-function validarEdad() {
+function validarEdad(nombre) {
     let edadUsuario = parseInt(prompt("Ingresa tu edad"));
     let edad = parseInt(edadUsuario);
 
-    while (edad != parseInt(edadUsuario)) {
+    while (edad != parseInt(edadUsuario))  {
         alert("Dato de edad inválido");
         edadUsuario = prompt("Ingresa tu edad");
         edad = parseInt(edadUsuario);
@@ -39,7 +39,7 @@ function preguntarCiudad() {
     if (ciudadUsuario === "BARCELONA" || ciudadUsuario === "MADRID") {
         alert("Ciudad encontrada");
 
-        // fechas
+        //fechas
         let fechaPrimera = "05/06/24";
         let fechaSegunda = "10/06/24";
         let fecha;
@@ -47,7 +47,7 @@ function preguntarCiudad() {
         while (intentos < 3) {
             fecha = prompt("Ingresa la fecha de las funciones disponibles: 05/06/24 o 10/06/24");
 
-            // validar fecha
+            // Validar fecha
             if (fecha === fechaPrimera || fecha === fechaSegunda) {
                 alert("Fecha disponible");
                 return ciudadUsuario;
@@ -66,15 +66,14 @@ function preguntarCiudad() {
 }
 
 let nombre = obtenerNombre();
-let edad = validarEdad();
+let edad = validarEdad(nombre);
 
 if (nombre && edad !== null) {
     let ciudad = preguntarCiudad();
 
     if (ciudad) {
-        let intentos = 0;
 
-        //entradas
+        //las entradas
         let entrada = prompt("Ingresa tu entrada: GENERAL o VIP");
 
         //mientras que no sea GENERAL o VIP
@@ -96,8 +95,7 @@ if (nombre && edad !== null) {
 
                 if (entradas > 20 || entradas <= 0) {
                     alert("Número de entradas inválido");
-                } 
-                else {
+                } else {
                     break;
                 }
             }
@@ -105,8 +103,7 @@ if (nombre && edad !== null) {
             //si superan los 3 intentos, aviso y no continuo
             if (intentosEntradas === 3) {
                 alert("Has alcanzado el máximo de intentos para ingresar el número de entradas");
-            } 
-            else {
+            } else {
                 let total = 40 * entradas;
                 alert("El total a pagar es de: " + total + "€");
 
@@ -121,8 +118,7 @@ if (nombre && edad !== null) {
                     if (intentosAbono >= 3) {
                         alert("Has excedido el número máximo de intentos");
                         break;
-                    } 
-                    else {
+                    } else {
                         alert("Dato incorrecto");
                         abonar = prompt("¿Quieres abonar la entrada? SI (S) o NO (N)");
                     }
@@ -159,7 +155,7 @@ if (nombre && edad !== null) {
             }
 
             if (intentosEntradas === 3) {
-                alert("Has alcanzado el máximo de intentos para ingresar el número de entradas, intentalo más tarde");
+                alert("Has alcanzado el máximo de intentos para ingresar el número de entradas, inténtalo más tarde");
             } 
             else {
                 let total = 100 * entradas;
@@ -169,7 +165,7 @@ if (nombre && edad !== null) {
                 let abonar = prompt("¿Quieres abonar la entrada? SI (S) o NO (N)");
                 let intentosAbono = 0;
 
-                //mientras que no sea SI o NO, ni los 3 intentos, aviso y no continuo
+                //mientras que no sea SI o NO, ni los 3 intentos, aviso y no continúo
                 while ((abonar !== "SI" && abonar !== "S" && abonar !== "NO" && abonar !== "N") && intentosAbono < 3) {
                     //incrementar el contador de intentos
                     intentosAbono += 1;
@@ -195,4 +191,3 @@ if (nombre && edad !== null) {
         }
     }
 }
-
